@@ -1,0 +1,17 @@
+📌 Struktur
+- Version: v1.0
+- Letzte Aktualisierung: automatisch mit Zeitstempel
+- Phasen:
+- 🛠 Noch offen (Phase 2 – Entwicklungs‑Setup)
+- 📂 Nächste Schritte danach
+- 🚀 Start der Entwicklungsphase
+Jede Aufgabe ist als completed: false markiert und kann auf true gesetzt werden, sobald sie erledigt ist.
+
+💡 So nutzt du sie im Repo
+- Datei ins Hauptverzeichnis legen (/project_aethelgard_checklist_v1.json)
+- Änderungen an Aufgaben oder Status committen – so hast du eine lückenlose Versionshistorie
+- Optional: In der README verlinken, z. B.:
+📋 Aktueller Fortschritt: [Checkliste](./project_aethelgard_checklist_v1.json)
+- Falls du GitHub Issues nutzt, kannst du die JSON‑Einträge auch automatisch mit offenen Issues synchronisieren (z. B. via Action‑Script)
+
+Möchtest du, dass ich dir gleich noch ein kleines GitHub‑Action‑Snippet entwerfe, das diese Checkliste automatisch aktualisiert, wenn du ein Issue schließt oder öffnest? Das würde dir viel Handarbeit sparen.
