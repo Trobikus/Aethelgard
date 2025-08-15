@@ -1,0 +1,54 @@
+name: Update Checklist
+
+on:
+  issues:
+    types: [opened, closed]
+
+jobs:
+  sync-checklist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Update checklist JSON
+        run: |
+          import json, os
+          from datetime import datetime
+
+          checklist_file = "project_aethelgard_checklist_v1.json"
+
+          # Lade aktuelle Checkliste
+          with open(checklist_file, "r", encoding="utf-8") as f:
+              data = json.load(f)
+
+          # Prüfe Event-Typ & Issue-Titel
+          issue_title = os.environ["ISSUE_TITLE"]
+          issue_state = os.environ["ISSUE_STATE"]  # opened / closed
+
+          # Suche Task in allen Phasen
+          for phase, tasks in data["phases"].items():
+              for task in tasks:
+                  if issue_title.lower() in task["task"].lower():
+                      task["completed"] = (issue_state == "closed")
+
+          data["last_updated"] = datetime.now().isoformat()
+
+          # Speichern
+          with open(checklist_file, "w", encoding="utf-8") as f:
+              json.dump(data, f, ensure_ascii=False, indent=4)
+
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_STATE: ${{ github.event.action }}
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "chore: sync checklist with issue #${{ github.event.issue.number }}"
+          file_pattern: project_aethelgard_checklist_v1.json
