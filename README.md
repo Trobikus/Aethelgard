@@ -14,7 +14,6 @@ Durch das dynamische Echo‑System wechseln Spieler fließend zwischen offener W
 - Koop‑Raids: Mehrstufige Bosskämpfe
 - Saisonale Liga‑Struktur: Frische Mods & Herausforderungen
 
-🗂 Repository‑Struktur
 Project-Aethelgard/
 ├── docs/                # Design-Dokumente, Gantt-Pläne, Architektur-Skizzen
 ├── src/
