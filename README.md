@@ -1,77 +1,97 @@
-🏰 Project Aethelgard
-Genre: Action‑MMORPG / Hack’n’Slash Hybrid
-Plattformen: PC (Windows) – spätere Konsolenportierung möglich
-Engine: Unreal Engine 5 (C++ / Blueprint)
+# ⚔️ Project Aethelgard
 
-📜 Vision
-Project Aethelgard ist ein episches MMORPG, das die Loot‑getriebene Action von Hack’n’Slash‑Spielen mit der sozialen Tiefe einer persistenten Online‑Welt kombiniert.
-Durch das dynamische Echo‑System wechseln Spieler fließend zwischen offener Welt und prozedural generierten Abenteuern – immer auf der Jagd nach Ausrüstung, Lore und Macht.
+## Die Konvergenz zweier Welten – Eine neue Ära des RPGs
 
-✨ Kernfeatures
-- Dualer Fortschritt: Charakterlevel & Atlas der Echos
-- Prozedurale Dungeons: Zufallsaffixe, Gegner und Loot
-- Drei einzigartige Klassen: Warden, Mender, Reaper
-- Koop‑Raids: Mehrstufige Bosskämpfe
-- Saisonale Liga‑Struktur: Frische Mods & Herausforderungen
+**Project Aethelgard** vereint die epische, soziale Tiefe und die beständige Welt eines MMORPGs mit der nervenaufreibenden Action, dem Loot‑Hunger und der endlosen Wiederspielbarkeit eines Hack‑and‑Slay.  
+Erlebe **zwei Spiele in einer Welt** – nahtlos verwoben zu einem Next‑Gen‑Online‑Rollenspiel.
 
-Project-Aethelgard/
-├── docs/                # Design-Dokumente, Gantt-Pläne, Architektur-Skizzen
-├── src/
-│   ├── client/           # Spielclient (Assets, Scripts, UI)
-│   ├── server/           # Serverlogik, API, Datenbank
-│   └── shared/           # Gemeinsam genutzte Module
-├── tools/                # Build-Skripte, Import-/Export-Tools
-├── tests/                # Unit-, Integrations- & Lasttests
-├── assets_raw/           # Original-Assets in hoher Qualität
-├── .gitignore
-├── README.md
-├── LICENSE
-└── CONTRIBUTING.md
+---
 
-
+## 🌍 Spielwelt
 
-🚀 Installation & Setup
-1. Repository klonen
-git clone https://github.com/<DeinAccount>/Project-Aethelgard.git
-cd Project-Aethelgard
+### Das Reich (persistente Oberwelt)
+- Handgefertigte, offene Spielwelt mit Hauptstädten, Fraktionen und Wildnis.
+- Sozialer und narrativer Knotenpunkt: Gilden, Handel, Quests und Handwerk.
+- Epische Hauptstory mit filmischen Quest‑Reihen.
 
+### Die Echos (Scherbenwelten)
+- Prozedural generierte Taschendimensionen für 1–4 Spieler.
+- Fokus auf schnelle Action, Loot‑Jagd und Build‑Optimierung.
+- Hauptquelle für seltene Ausrüstung und Materialien.
 
-2. Abhängigkeiten installieren
-- Unreal Engine 5 einrichten
-- Falls nötig: Node.js / Python‑Tools für Build‑Skripte installieren
-- Datenbank lokal konfigurieren (PostgreSQL empfohlen)
-3. Environment‑Variablen setzen
-Erstelle .env im Hauptverzeichnis mit:
-DB_HOST=localhost
-DB_USER=...
-DB_PASS=...
+---
 
+## ⚔️ Kampfsystem – „Kinetisches Weben“
 
-4. Projekt starten
-- Client: In Unreal Engine öffnen und starten
-- Server: Startskript in src/server ausführen
+- **Physikbasiertes Action‑Combat**: Jeder Treffer muss gezielt werden, Skills können verfehlen.
+- Drei neu interpretierte Rollen:
+  - **Warden (Tank)**: Aktive Schadensminderung & Crowd Control.
+  - **Mender (Support/Heiler)**: Präzise Heil‑Skillshots und Buff/Debuff‑Kontrolle.
+  - **Reaper (DPS)**: Hohe Mobilität und komplexe Angriffskombos.
+- Skaliert von Solo‑Gefechten bis zu 20‑Spieler‑Raids.
 
-🛠 Entwicklungs‑Workflow
-- Branches:
-- main – stabiler Produktionscode
-- develop – aktueller Entwicklungszweig
-- feature/<feature-name> – neue Features
-- fix/<bug-name> – Bugfixes
-- Pull Requests: PR‑Template ausfüllen, Code Reviews durchführen
-- Code Style: Einheitliche Code- und Asset‑Namenskonventionen beachten (siehe CONTRIBUTING.md)
-- Git LFS: Für große Dateien wie Texturen, Modelle und Sounds aktiviert
+---
 
-📅 Roadmap
-- Detaillierte Zeitplanung: docs/Gantt-Plan.png
-- Feature‑Beschreibung: docs/Living_Design_Document.md
+## 📈 Progression
 
-🤝 Beitrag leisten
-Siehe CONTRIBUTING.md für Richtlinien zu Branches, Commits und PRs.
+| Vertikale Progression (permanent)          | Horizontale Progression (saisonal)            |
+| ------------------------------------------- | ---------------------------------------------- |
+| Levelaufstieg 1–60                          | „Atlas der Echos“ mit gefährlicheren Dungeons  |
+| Klassendefinierende Talente                 | Tiefes Item‑System mit zufälligen Affixen      |
+| Freischaltung von Story‑Inhalten            | Saisonale Ligen mit neuen Mechaniken           |
 
-📜 Lizenz
-Dieses Projekt steht unter der MIT Lizenz.
+---
 
-📌 Kontakt
-- Projektleitung: Max
-- Discord: [Einladungslink einfügen]
-- E‑Mail: [Adresse einfügen]
+## 🛡 Soziales & Endgame
+
+- **Gilden‑Bastionen**: Ausbaubare Festungen mit Boni und Endgame‑Zugang.
+- **Handel**: Spielergetriebene Wirtschaft mit Auktionshaus für Standardgüter.
+- **Zwei Endgame‑Säulen**:
+  - **Welten‑Schmieden (Raids)**: 20‑Spieler‑Bosskämpfe, kosmetische Belohnungen, Crafting‑Pläne.
+  - **Saisonale Ligen**: Wettbewerbs‑H&S mit Ranglisten & exklusiven Cosmetics.
+
+---
+
+## ♻ Gameplay‑Loop
+
+1. **Echos farmen** → Loot & Materialien.
+2. **MMORPG‑Inhalte** → Bastionen ausbauen & Story erleben.
+3. **Raids meistern** → Pläne & kosmetische Upgrades sichern.
+4. **Build perfektionieren** → Für nächste Saison vorbereiten.
+
+---
+
+## 💰 Monetarisierung
+
+- **Buy‑to‑Play** ohne Pay‑to‑Win.
+- Kosmetik‑Shop (Skins, Effekte, Haustiere).
+- Optionaler saisonaler **War Pass** für zusätzliche Cosmetics & Komfort.
+
+---
+
+## 📋 Systemanforderungen *(vorläufig)*
+
+- **Betriebssystem**: Windows 10/11 (64‑bit)
+- **Prozessor**: Quad‑Core 3.0 GHz oder besser
+- **RAM**: 16 GB
+- **Grafikkarte**: GTX 1060 / RX 580 oder besser
+- **Speicherplatz**: 50 GB SSD
+
+---
+
+## 🖼 Screenshots & Trailer
+*(Platzhalter – hier Medien einfügen)*
+
+---
+
+## 👥 Credits
+
+- **Design & Konzept**: [Dein Name / Studio]
+- **Entwicklung**: [Team/Studio]
+- **Besonderer Dank**: Community & Testspieler
+
+---
+
+💡 **Mitwirken:**  
+Du möchtest an *Project Aethelgard* mitarbeiten oder Feedback geben?  
+Sieh dir [CONTRIBUTING.md](CONTRIBUTING.md) an, um alle Details zu erfahren.

@@ -1,75 +1,62 @@
-🤝 Contributing Guide – Project Aethelgard
-Vielen Dank, dass du zu Project Aethelgard beitragen möchtest!
-Dieses Dokument erklärt, wie wir zusammenarbeiten, um ein stabiles, skalierbares und spaßiges MMORPG zu bauen.
-📋 Inhaltsverzeichnis
-- Grundprinzipien
-- Branch-Strategie
-- Commit-Richtlinien
-- Pull-Requests
-- Code-Style & Assets
-- Umgang mit Issues
-- Tests & Builds
-- Kommunikation
+# 🤝 Beitrag leisten zu *Project Aethelgard*
 
-🛡 Grundprinzipien
-- Schreibe sauberen, gut dokumentierten Code
-- Jede Änderung wird getestet, bevor sie gemerged wird
-- Assets und Code immer so ablegen, dass sie leicht auffindbar sind
-- Achte auf Performance, Lesbarkeit und Wartbarkeit
-- Respektvoller Umgang im Team ist oberstes Gebot
+Vielen Dank, dass du überlegst, zu *Project Aethelgard* beizutragen!  
+Dieses Dokument erklärt, wie du uns helfen kannst, das Spiel noch besser zu machen – egal ob mit Code, Ideen, Bug Reports oder Feedback.
 
-🌿 Branch-Strategie
-- main – stabiler Produktionscode
-- develop – aktueller Entwicklungszweig
-- feature/<kurzer-name> – neue Features
-- fix/<kurzer-name> – Bugfixes
-- hotfix/<kurzer-name> – dringende Korrekturen im Produktionscode
-Beispiele:
-feature/combat-system
-fix/echo-loot-bug
-hotfix/server-crash-login
+---
 
-📝 Commit-Richtlinien
-- Commit-Messages prägnant und auf Englisch
-- Präsens verwenden („Add login screen“)
-- Struktur:
-<TYPE>: <Kurze Beschreibung>
+## 📜 Verhaltenskodex
+Bitte halte dich an unseren [Code of Conduct](CODE_OF_CONDUCT.md) (falls vorhanden), um eine respektvolle und konstruktive Zusammenarbeit zu gewährleisten.
 
-<Optional: längere Erklärung>
-- Types:
-feat, fix, docs, style, refactor, test, chore
+---
 
-🔄 Pull-Requests
-- PR aus feature/... oder fix/... gegen develop
-- PR-Template ausfüllen
-- Mindestens 1 Review eines Teammitglieds
-- Konflikte vor dem Review selbst beheben
-- Keine direkten Commits auf main
+## 🛠 Entwicklungs‑Setup
 
-🎨 Code-Style & Assets
-- Code: 4 Spaces, lower_snake_case für Skripte, klare Kommentare
-- Assets:
-- Texturen: tex_<beschreibung>.png
-- Modelle: mdl_<beschreibung>.fbx
-- Audio: sfx_<beschreibung>.wav oder mus_<beschreibung>.mp3
-- Git LFS für große Dateien nutzen
+1. **Fork** das Repository auf GitHub.  
+2. **Clone** deinen Fork lokal:  
+   ```bash
+   git clone https://github.com/<DEIN-USER>/<DEIN-FORK>.git
 
-🐞 Umgang mit Issues
-- Issue-Templates für Bugs, Features, Tasks nutzen
-- Problem, Kontext, erwartetes Ergebnis klar beschreiben
-- Relevante Commits, Screenshots, Logs verlinken
+   - Erstelle einen Branch für deine Änderung:
 
-🧪 Tests & Builds
-- Unit Tests bei neuen Features
-- Integrationstests für große Gameplay-Systeme
-- Builds über GitHub Actions automatisiert
-- Kein Merge, wenn Tests fehlschlagen
+git checkout -b feature/dein-feature
 
-💬 Kommunikation
-- Hauptkanal: Discord (Text & Voice)
-- Kurze Absprachen → Discord
-- Entscheidungen immer in docs/ dokumentieren
-- Wichtige Ankündigungen im #dev-updates
+- Installiere benötigte Abhängigkeiten (siehe docs/ oder interne Setup-Anleitung).
+- Stelle sicher, dass das Spiel lokal startet und deine Änderungen getestet werden können.
 
-🎯 Ziel
-Sauber strukturierter Code, klare Prozesse und eine gesunde Teamkultur – so bringen wir Project Aethelgard von einer Vision in die Realität.
+📝 Issues erstellenWir verwenden vorgefertigte Templates, um die Kommunikation klar und strukturiert zu halten.
+Du findest sie unter .github/ISSUE_TEMPLATE/.| Typ | Zweck | 
+
+| 🐞 Bug Report – Fehler melden und reproduzieren |  | 
+| ✨ Feature Request – Neue Funktion oder Verbesserung vorschlagen |  | 
+| 📋 Task – Konkrete Aufgabe oder Arbeitspaket dokumentieren |  | 
+
+💡 So geht’s:- Gehe auf den Issues‑Tab und klicke New Issue.
+- Wähle das passende Template aus.
+- Fülle alle Pflichtfelder aus, damit wir schnell reagieren können.
+
+🔀 Pull Requests erstellenFür Code‑Beiträge nutzen wir ebenfalls ein Template (.github/pull_request_template.md), das automatisch geladen wird.Ablauf:- Push deinen Branch zu deinem Fork.
+- Öffne im Original‑Repository einen Pull Request von deinem Branch.
+- Fülle alle Felder im PR‑Template aus (Beschreibung, Motivation, Änderungen, Tests, Checkliste).
+- Stelle sicher, dass alle automatischen Checks und Tests grün sind.
+
+💡 Coding‑Standards- Saubere, gut lesbare Struktur (halte dich an unsere bestehenden Konventionen).
+- Nutze sprechende Variablen‑ und Methodennamen.
+- Dokumentiere komplexe Funktionen mit Kommentaren.
+- Schreibe Tests, wenn möglich.
+- Keine nicht benötigten Abhängigkeiten hinzufügen.
+
+🔄 Review‑Prozess- Mindestens ein Core‑Entwickler muss deinen PR prüfen.
+- Eventuelles Feedback bitte zeitnah einarbeiten.
+- Nach Freigabe wird der PR gemergt – Glückwunsch, du bist Teil der Aethelgard-Chronik!
+
+🧭 Projekt‑PhilosophieProject Aethelgard ist eine Symbiose aus epischem MMORPG und schnellem Hack‑and‑Slay.
+Unser Ziel:- Nachhaltiger Spielspaß über Jahre
+- Fair‑Play ohne Pay‑to‑Win
+- Gemeinschaft, die wächst und sich gegenseitig unterstützt
+
+📣 Feedback & Diskussion- Nutze GitHub Discussions für offene Fragen oder Ideen.
+- Folge uns auf unseren Community‑Kanälen (siehe README).
+- Respektvoller Umgang ist Pflicht – jede Stimme zählt.
+
+Danke, dass du Project Aethelgard mitgestaltest!

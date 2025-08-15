@@ -1,0 +1,12 @@
+blank_issues_enabled: false  # Verhindert, dass komplett leere Issues erstellt werden
+
+contact_links:
+  - name: ❓ Frage / Support
+    url: https://github.com/Trobikus/Aethelgard/discussions
+    about: Bitte nutze die Discussions, um allgemeine Fragen zu stellen oder Hilfe zu bekommen.
+
+defaults:
+  labels:
+    - needs-triage   # Automatisch gesetztes Label für neue Issues, kann angepasst werden
+  assignees:
+    - max-mustermann # GitHub-Username der Standard-Person, die neue Issues/Pull Requests prüft
