@@ -16,3 +16,47 @@ Bitte halte dich an unseren [Code of Conduct](CODE_OF_CONDUCT.md) (falls vorhand
 2. **Clone** deinen Fork lokal:  
    ```bash
    git clone https://github.com/<DEIN-USER>/<DEIN-FORK>.git
+
+   - Erstelle einen Branch für deine Änderung:
+
+git checkout -b feature/dein-feature
+
+- Installiere benötigte Abhängigkeiten (siehe docs/ oder interne Setup-Anleitung).
+- Stelle sicher, dass das Spiel lokal startet und deine Änderungen getestet werden können.
+
+📝 Issues erstellenWir verwenden vorgefertigte Templates, um die Kommunikation klar und strukturiert zu halten.
+Du findest sie unter .github/ISSUE_TEMPLATE/.| Typ | Zweck | 
+
+| 🐞 Bug Report – Fehler melden und reproduzieren |  | 
+| ✨ Feature Request – Neue Funktion oder Verbesserung vorschlagen |  | 
+| 📋 Task – Konkrete Aufgabe oder Arbeitspaket dokumentieren |  | 
+
+💡 So geht’s:- Gehe auf den Issues‑Tab und klicke New Issue.
+- Wähle das passende Template aus.
+- Fülle alle Pflichtfelder aus, damit wir schnell reagieren können.
+
+🔀 Pull Requests erstellenFür Code‑Beiträge nutzen wir ebenfalls ein Template (.github/pull_request_template.md), das automatisch geladen wird.Ablauf:- Push deinen Branch zu deinem Fork.
+- Öffne im Original‑Repository einen Pull Request von deinem Branch.
+- Fülle alle Felder im PR‑Template aus (Beschreibung, Motivation, Änderungen, Tests, Checkliste).
+- Stelle sicher, dass alle automatischen Checks und Tests grün sind.
+
+💡 Coding‑Standards- Saubere, gut lesbare Struktur (halte dich an unsere bestehenden Konventionen).
+- Nutze sprechende Variablen‑ und Methodennamen.
+- Dokumentiere komplexe Funktionen mit Kommentaren.
+- Schreibe Tests, wenn möglich.
+- Keine nicht benötigten Abhängigkeiten hinzufügen.
+
+🔄 Review‑Prozess- Mindestens ein Core‑Entwickler muss deinen PR prüfen.
+- Eventuelles Feedback bitte zeitnah einarbeiten.
+- Nach Freigabe wird der PR gemergt – Glückwunsch, du bist Teil der Aethelgard-Chronik!
+
+🧭 Projekt‑PhilosophieProject Aethelgard ist eine Symbiose aus epischem MMORPG und schnellem Hack‑and‑Slay.
+Unser Ziel:- Nachhaltiger Spielspaß über Jahre
+- Fair‑Play ohne Pay‑to‑Win
+- Gemeinschaft, die wächst und sich gegenseitig unterstützt
+
+📣 Feedback & Diskussion- Nutze GitHub Discussions für offene Fragen oder Ideen.
+- Folge uns auf unseren Community‑Kanälen (siehe README).
+- Respektvoller Umgang ist Pflicht – jede Stimme zählt.
+
+Danke, dass du Project Aethelgard mitgestaltest!
