@@ -86,8 +86,8 @@ Erlebe **zwei Spiele in einer Welt** – nahtlos verwoben zu einem Next‑Gen‑
 
 ## 👥 Credits
 
-- **Design & Konzept**: [Dein Name / Studio]
-- **Entwicklung**: [Team/Studio]
+- **Design & Konzept**: [Trobikus]
+- **Entwicklung**: [Trobikus]
 - **Besonderer Dank**: Community & Testspieler
 
 ---
