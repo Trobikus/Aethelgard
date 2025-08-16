@@ -1,0 +1,58 @@
+# ################ #
+# Godot-spezifisch #
+# ################ #
+
+# Ignoriere den versteckten .godot-Ordner. Er enthält importierte Assets und
+# benutzerspezifische Projekt-Einstellungen. Er wird bei jedem Start neu generiert.
+.godot/
+
+# Ignoriere Mono-spezifische Dateien, falls du C# verwendest.
+.mono/
+bin/
+obj/
+
+# ################################# #
+# Exportierte Builds & Artefakte #
+# ################################# #
+
+# Ignoriere den Build-Ordner, der von der GitHub Actions CI erstellt wird.
+# Exportierte Spiele sollten niemals im Repository versioniert werden.
+build/
+
+# Ignoriere andere typische Namen für Export-Ordner.
+export/
+dist/
+release/
+
+# Ignoriere exportierte PCK- oder ZIP-Dateien direkt im Hauptverzeichnis.
+*.pck
+*.zip
+
+# ##################### #
+# System- & Editor-Dateien #
+# ##################### #
+
+# Ignoriere temporäre Dateien und Backups von Editoren.
+*.swp
+*~
+*.bak
+*.tmp
+
+# Betriebssystem-spezifische Metadaten-Dateien
+# macOS
+.DS_Store
+# Windows
+Thumbs.db
+# Linux
+.Trash-*
+
+# ################# #
+# IDE-Konfiguration #
+# ################# #
+
+# Ignoriere Konfigurationsordner von gängigen IDEs.
+.vscode/
+.idea/
+*.sln
+*.suo
+
