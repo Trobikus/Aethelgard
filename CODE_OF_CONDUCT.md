@@ -1,4 +1,5 @@
-# Code of Conduct – Project Aethelgard
+# Code of Conduct – - Aethelgard: Shards of Eternity
+
 
 ## Unser Versprechen
 Wir als Mitglieder, Mitwirkende und Verantwortliche verpflichten uns, allen Teilnehmenden an unserem Projekt und unserer Community ein belästigungsfreies Erlebnis zu bieten – unabhängig von Alter, Körpergröße, sichtbaren oder unsichtbaren Behinderungen, ethnischer Zugehörigkeit, Geschlechtsmerkmalen, Geschlechtsidentität und -ausdruck, Erfahrungsgrad, Bildung, sozioökonomischem Status, Nationalität, persönlichem Erscheinungsbild, Rasse, Religion oder sexueller Identität und Orientierung.
@@ -26,7 +27,7 @@ Sie haben das Recht und die Pflicht, Beiträge zu entfernen, Pull Requests oder 
 Dieser Verhaltenskodex gilt für alle Projektbereiche und auch dort, wo das Projekt oder seine Community nach außen repräsentiert wird – online wie offline.
 
 ## Durchsetzung
-Verstöße gegen diesen Kodex können gemeldet werden an: **[Deine Kontaktadresse oder Issue‑Link einfügen]**.  
+Verstöße gegen diesen Kodex können gemeldet werden an: **aethelgardshardsofeternity@gmail.com**.  
 Alle Meldungen werden vertraulich behandelt.
 
 Die Projektverantwortlichen sind verpflichtet, jede Beschwerde zu prüfen und eine faire, zeitnahe Lösung anzustreben.

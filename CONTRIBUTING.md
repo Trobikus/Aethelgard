@@ -1,6 +1,6 @@
-# 🤝 Beitrag leisten zu *Project Aethelgard*
+# 🤝 Beitrag leisten zu *Aethelgard: Shards of Eternity*
 
-Vielen Dank, dass du überlegst, zu *Project Aethelgard* beizutragen!  
+Vielen Dank, dass du überlegst, zu *Aethelgard: Shards of Eternity* beizutragen!  
 Dieses Dokument erklärt, wie du uns helfen kannst, das Spiel noch besser zu machen – egal ob mit Code, Ideen, Bug Reports oder Feedback.
 
 ---
@@ -50,7 +50,7 @@ Du findest sie unter .github/ISSUE_TEMPLATE/.| Typ | Zweck |
 - Eventuelles Feedback bitte zeitnah einarbeiten.
 - Nach Freigabe wird der PR gemergt – Glückwunsch, du bist Teil der Aethelgard-Chronik!
 
-🧭 Projekt‑PhilosophieProject Aethelgard ist eine Symbiose aus epischem MMORPG und schnellem Hack‑and‑Slay.
+🧭 Projekt‑Philosophie Aethelgard: Shards of Eternity ist eine Symbiose aus epischem MMORPG und schnellem Hack‑and‑Slay.
 Unser Ziel:- Nachhaltiger Spielspaß über Jahre
 - Fair‑Play ohne Pay‑to‑Win
 - Gemeinschaft, die wächst und sich gegenseitig unterstützt
@@ -59,4 +59,4 @@ Unser Ziel:- Nachhaltiger Spielspaß über Jahre
 - Folge uns auf unseren Community‑Kanälen (siehe README).
 - Respektvoller Umgang ist Pflicht – jede Stimme zählt.
 
-Danke, dass du Project Aethelgard mitgestaltest!
+Danke, dass du Aethelgard: Shards of Eternity mitgestaltest!

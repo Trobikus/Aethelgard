@@ -2,7 +2,7 @@ blank_issues_enabled: false  # Verhindert, dass komplett leere Issues erstellt w
 
 contact_links:
   - name: ❓ Frage / Support
-    url: https://github.com/Trobikus/Aethelgard/discussions
+    url: https://github.com/Trobikus/Aethelgard_Shards_of_Eternity/discussions
     about: Bitte nutze die Discussions, um allgemeine Fragen zu stellen oder Hilfe zu bekommen.
 
 defaults:

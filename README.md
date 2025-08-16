@@ -1,8 +1,8 @@
-# ⚔️ Project Aethelgard
+# ⚔️ Aethelgard: Shards of Eternity
 
 ## Die Konvergenz zweier Welten – Eine neue Ära des RPGs
 
-**Project Aethelgard** vereint die epische, soziale Tiefe und die beständige Welt eines MMORPGs mit der nervenaufreibenden Action, dem Loot‑Hunger und der endlosen Wiederspielbarkeit eines Hack‑and‑Slay.  
+**Aethelgard: Shards of Eternity** vereint die epische, soziale Tiefe und die beständige Welt eines MMORPGs mit der nervenaufreibenden Action, dem Loot‑Hunger und der endlosen Wiederspielbarkeit eines Hack‑and‑Slay.  
 Erlebe **zwei Spiele in einer Welt** – nahtlos verwoben zu einem Next‑Gen‑Online‑Rollenspiel.
 
 ---
@@ -93,5 +93,5 @@ Erlebe **zwei Spiele in einer Welt** – nahtlos verwoben zu einem Next‑Gen‑
 ---
 
 💡 **Mitwirken:**  
-Du möchtest an *Project Aethelgard* mitarbeiten oder Feedback geben?  
+Du möchtest an *Aethelgard: Shards of Eternity* mitarbeiten oder Feedback geben?  
 Sieh dir [CONTRIBUTING.md](CONTRIBUTING.md) an, um alle Details zu erfahren.

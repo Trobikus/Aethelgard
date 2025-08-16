@@ -1,4 +1,4 @@
-# Proprietäre Lizenz – Project Aethelgard
+# Proprietäre Lizenz – Aethelgard: Shards of Eternity
 
 Copyright (c) 2025 [Trobikus]
 
