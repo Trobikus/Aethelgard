@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjsm87mbg3s5h"]
+
+[ext_resource type="PackedScene" path="res://actors/player/player.tscn" id="1_gkqq7"]
+[ext_resource type="Script" uid="uid://cu80a7wnpp2ej" path="res://resources/attack_data.gd" id="2_gmgay"]
+[ext_resource type="PackedScene" path="res://items/interactable_test_cube.tscn" id="2_qj8s8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4x8l7"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_agopn"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="Resource" id="Resource_w7r7j"]
+script = ExtResource("2_gmgay")
+damage = 10.0
+attack_range = 1.5
+duration = 0.3
+combo_next_attack_window = 0.2
+animation_name = "attack_1"
+metadata/_custom_type_script = "uid://cu80a7wnpp2ej"
+
+[node name="TestLevel" type="Node3D"]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_4x8l7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_agopn")
+
+[node name="Player" parent="." instance=ExtResource("1_gkqq7")]
+base_attack_data = SubResource("Resource_w7r7j")
+max_combo_hits = null
+
+[node name="InteractableTestCube" parent="." instance=ExtResource("2_qj8s8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -5)
+gravity = null
+max_health = null
+max_stamina = null
+stamina_regeneration = null
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 5, 0)
+shadow_enabled = true

@@ -15,13 +15,13 @@ Spieler-Controller:
 
 [x] Grundlegende 3rd-Person-Bewegung (Laufen, Sprinten).
 
-[/] Ausweichrolle mit Cooldown / Ausdauer-System.
+[x] Ausweichrolle mit Cooldown / Ausdauer-System.
 
-[ ] Interaktionssystem (Aufheben von Gegenständen, Öffnen von Türen).
+[x] Interaktionssystem (Aufheben von Gegenständen, Öffnen von Türen).
 
 Kampfsystem ("Kinetisches Weben"):
 
-[ ] Basis-Nahkampfangriff (Kombo mit 3 Schlägen).
+[x] Basis-Nahkampfangriff (Kombo mit 3 Schlägen).
 
 [ ] Basis-Fernkampfangriff (Skill-Shot).
 
