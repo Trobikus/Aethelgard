@@ -1,29 +1,71 @@
-name: CI Pipeline
+# Name des GitHub Actions Workflows. Wird in der "Actions"-Ansicht auf GitHub angezeigt.
+name: Godot CI - Export Project
 
+# Trigger: Wann soll dieser Workflow ausgeführt werden?
 on:
+  # Bei jedem Push auf den 'main'-Branch
   push:
-    branches: [ main ]
+    branches: [ "main" ]
+  # Bei jedem Pull Request, der auf den 'main'-Branch abzielt
   pull_request:
-    branches: [ main ]
+    branches: [ "main" ]
 
+# Jobs: Eine Liste von Aufgaben, die ausgeführt werden sollen.
 jobs:
-  build-and-test:
+  # Der einzige Job in diesem Workflow heißt "export".
+  export:
+    # Name des Jobs, der auf GitHub angezeigt wird.
+    name: Export Game
+    # Betriebssystem, auf dem der Job laufen soll. 'ubuntu-latest' ist Standard und kosteneffizient.
     runs-on: ubuntu-latest
 
+    # Schritte: Die einzelnen Aktionen, die im Job ausgeführt werden.
     steps:
-      - name: 📥 Checkout Repository
+      # Schritt 1: Code aus dem Repository auschecken
+      # Lädt den aktuellen Stand deines Codes herunter, damit der Workflow damit arbeiten kann.
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - name: 🛠 Set up Node.js
-        uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          # Notwendig, um Git-Metadaten für einige Godot-Export-Features zu haben (optional).
+          fetch-depth: 0
 
-      - name: 📦 Install Dependencies
-        run: npm ci
+      # Schritt 2: Godot Engine und Export-Templates einrichten
+      # Nutzt eine vorgefertigte Action aus der Community, um Godot herunterzuladen und zu konfigurieren.
+      # Du musst hier die Godot-Version an dein Projekt anpassen!
+      - name: Set up Godot
+        uses: abarichello/godot-ci@v1.2
+        with:
+          # WICHTIG: Ändere dies auf die exakte Godot-Version, die du für dein Projekt verwendest.
+          godot-version: '4.4.1'
+          # Stellt sicher, dass auch die Export-Templates für diese Version heruntergeladen werden.
+          download-templates: true
 
-      - name: 🧪 Run Tests
-        run: npm test 
-        
-      - name: 🔍 Lint Code
-        run: npm run lint  
+      # Schritt 3: Export-Verzeichnisse erstellen
+      # Erstellt Ordner, in denen die exportierten Spieldateien abgelegt werden.
+      - name: Create Export Directories
+        run: mkdir -p ./build/linux ./build/windows ./build/web
+
+      # Schritt 4: Projekt exportieren
+      # Führt den eigentlichen Export-Befehl für jede Zielplattform aus.
+      # WICHTIG: Die Namen der Presets ("Linux/X11", "Windows Desktop", "Web") müssen exakt
+      # mit den Namen übereinstimmen, die du in Godot im "Export"-Dialogfenster festgelegt hast!
+      - name: Export Project
+        run: |
+          echo "🚀 Starting export for Linux..."
+          godot --headless --export-release "Linux/X11" --output ./build/linux/aethelgard.x86_64
+          
+          echo "🚀 Starting export for Windows..."
+          godot --headless --export-release "Windows Desktop" --output ./build/windows/aethelgard.exe
+          
+          echo "🚀 Starting export for Web..."
+          godot --headless --export-release "Web" --output ./build/web/index.html
+
+      # Schritt 5: Exportierte Dateien als Artefakte hochladen
+      # Speichert die fertigen Builds, damit du sie nach Abschluss des Workflows
+      # von der GitHub-Actions-Seite herunterladen kannst.
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: game-builds
+          path: ./build
+

@@ -1,53 +1,134 @@
-flowchart TD
-    classDef done fill:#9be7a8,stroke:#2e7d32,color:#000
-    classDef progress fill:#fff59d,stroke:#f9a825,color:#000
-    classDef upcoming fill:#90caf9,stroke:#1565c0,color:#000
+Roadmap für Aethelgard: Echoes of the Shard
+Dieses Dokument beschreibt die geplante Entwicklung von "Aethelgard: Echoes of the Shard". Die Roadmap ist in Phasen unterteilt, die aufeinander aufbauen, um die Kernvision des Spiels schrittweise zu realisieren. Als Solo-Projekt ist diese Roadmap ein lebendiges Dokument und kann sich im Laufe der Entwicklung anpassen.
 
-    A[Repo‑Feinschliff ✅]:::done --> B[Entwicklungs‑Setup ⚙️]:::progress
-    B --> C[Projektinhalt 📂]:::upcoming
-    C --> D[Frühe Entwicklungsphase 🚀]:::upcoming
-    D --> E[Community & Sichtbarkeit 🌐]:::upcoming
-    E --> F[Kontinuierliche Iteration 🔄]:::upcoming
+Legende
+[ ] - Geplant
 
-    subgraph Phase 1: Repo‑Feinschliff
-        A1[README mit Screenshots, Artworks, Teaser‑Video]:::done
-        A2[Lizenz- & Kontaktinfos]:::done
-        A3[CODE_OF_CONDUCT.md ergänzen]:::done
-        A4[.gitignore & Git LFS prüfen]:::done
-    end
-    A --> A1 --> A2 --> A3 --> A4
+[/] - In Arbeit
 
-    subgraph Phase 2: Entwicklungs‑Setup
-        B1[Team einladen & Guidelines teilen]:::progress
-        B2[Branch‑Workflow testen]:::progress
-        B3[Build‑Pipeline einrichten]:::progress
-    end
-    B --> B1 --> B2 --> B3
+[x] - Abgeschlossen
 
-    subgraph Phase 3: Projektinhalt
-        C1[Verzeichnisstruktur anlegen]:::upcoming
-        C2[Platzhalter‑Assets & Beispielcode]:::upcoming
-        C3[Technische Doku starten]:::upcoming
-    end
-    C --> C1 --> C2 --> C3
+Phase 1: Prototyping & Core Gameplay (Aktueller Fokus)
+Ziel: Die grundlegenden Spielmechaniken implementieren und ein erstes "Spielgefühl" etablieren. Am Ende dieser Phase soll ein einfacher Prototyp existieren, der die Kern-Gameplay-Schleife demonstriert.
 
-    subgraph Phase 4: Frühe Entwicklungsphase
-        D1[Core‑Mechaniken prototypen]:::upcoming
-        D2[MVP definieren]:::upcoming
-        D3[Interne Tests & Feedback]:::upcoming
-    end
-    D --> D1 --> D2 --> D3
+Spieler-Controller:
 
-    subgraph Phase 5: Community & Sichtbarkeit
-        E1[Discussions/Discord aufsetzen]:::upcoming
-        E2[Devlog‑Format bestimmen]:::upcoming
-        E3[Externe Playtests]:::upcoming
-    end
-    E --> E1 --> E2 --> E3
+[x] Grundlegende 3rd-Person-Bewegung (Laufen, Sprinten).
 
-    subgraph Phase 6: Kontinuierliche Iteration
-        F1[Features in kurzen Zyklen]:::upcoming
-        F2[PR‑Reviews & Tests]:::upcoming
-        F3[Community‑Feedback integrieren]:::upcoming
-    end
-    F --> F1 --> F2 --> F3
+[/] Ausweichrolle mit Cooldown / Ausdauer-System.
+
+[ ] Interaktionssystem (Aufheben von Gegenständen, Öffnen von Türen).
+
+Kampfsystem ("Kinetisches Weben"):
+
+[ ] Basis-Nahkampfangriff (Kombo mit 3 Schlägen).
+
+[ ] Basis-Fernkampfangriff (Skill-Shot).
+
+[ ] Schadensberechnung und Lebenspunkte-System für Spieler und Gegner.
+
+[ ] Erste Gegner-KI (Verfolgen und Angreifen des Spielers).
+
+Welt & Level:
+
+[ ] Prototyp für die prozedurale Generierung der "Echos" (basierend auf Kacheln/Räumen).
+
+[ ] Einfacher Hub-Bereich ("Die Bastion").
+
+Systeme:
+
+[ ] Grundlegendes Inventar- und Ausrüstungssystem.
+
+[ ] Loot-Drops von Gegnern (zufällige Gegenstände).
+
+Phase 2: Vertical Slice & Content Foundation
+Ziel: Eine "vertikale Scheibe" des Spiels erstellen – ein kurzer, aber vollständiger Spielabschnitt, der alle Kernfeatures in einer polierten Form zeigt.
+
+Charakterentwicklung:
+
+[ ] Implementierung des Talentbaums mit dem ersten spielbaren Pfad (z.B. "Pfad des Schnitters").
+
+[ ] Level-Up-System mit Attributs- und Talentpunktvergabe.
+
+Inhalte:
+
+[ ] 2-3 verschiedene Gegnertypen mit einzigartigen Angriffsmustern.
+
+[ ] Ein erster Bosskampf mit mehreren Phasen und speziellen Mechaniken.
+
+[ ] Eine erste Quest, die den Spieler durch den Gameplay-Loop führt.
+
+[ ] Erste einzigartige Gegenstände (Uniques) mit build-verändernden Eigenschaften.
+
+UI/UX:
+
+[ ] Überarbeitung der UI-Elemente (Lebensbalken, Skill-Leiste, Inventar).
+
+[ ] Implementierung eines Quest-Logs.
+
+Phase 3: Alpha - Content Expansion
+Ziel: Das Spiel mit Inhalten füllen, um die Kampagne und das frühe Endgame spielbar zu machen.
+
+Charakterentwicklung:
+
+[ ] Ausarbeitung der verbleibenden Talentbaum-Pfade ("Wächter" & "Weber").
+
+[ ] Implementierung des Handwerkssystems (Verbessern und Modifizieren von Gegenständen).
+
+Inhalte:
+
+[ ] Erstellung der Story-Quests für die Kampagne.
+
+[ ] Hinzufügen von mehr Gegnervarianten, Bossen und Umgebungs-Themen für die Echos.
+
+[ ] Erweiterung des Item-Pools mit hunderten von neuen Ausrüstungsgegenständen.
+
+Systeme:
+
+[ ] Implementierung des "Atlas der Echos" als Endgame-Progressionssystem.
+
+[ ] Speicher- und Ladesystem.
+
+Phase 4: Beta - Polishing, Balancing & Koop
+Ziel: Das Spiel "Feature-Complete" machen. Der Fokus liegt auf Fehlerbehebung, Balancing und der Implementierung des Koop-Modus.
+
+Balancing:
+
+[ ] Umfassendes Balancing von Fähigkeiten, Gegenständen und Gegnern.
+
+[ ] Anpassung der Schwierigkeitskurve für Kampagne und Endgame.
+
+Koop-Modus:
+
+[ ] Implementierung des Netzwerk-Codes für Peer-to-Peer-Koop (2-4 Spieler).
+
+[ ] Synchronisation von Spielern, Gegnern und Loot.
+
+[ ] Skalierung der Gegnerstärke basierend auf der Spieleranzahl.
+
+Polishing:
+
+[ ] Hinzufügen von Soundeffekten und Musik.
+
+[ ] Verbesserung der visuellen Effekte (VFX) für Fähigkeiten und Umgebung.
+
+[ ] Optimierung der Performance.
+
+Phase 5: Release & Post-Launch
+Ziel: Veröffentlichung des Spiels und Planung zukünftiger Inhalte.
+
+Release:
+
+[ ] Finale Testphase und Bugfixing.
+
+[ ] Vorbereitung der Store-Seiten (z.B. Steam, Itch.io).
+
+[ ] Veröffentlichung von Version 1.0.
+
+Post-Launch (Zukunft):
+
+[ ] Regelmäßige Patches für Bugfixes und Balancing.
+
+[ ] Mögliche Inhalts-Updates (neue Echos, Gegenstände, Bosse).
+
+[ ] Evaluation von größeren Erweiterungen basierend auf dem Erfolg des Spiels.
