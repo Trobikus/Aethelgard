@@ -29,4 +29,4 @@ Diese Lizenz unterliegt dem Recht der Bundesrepublik Deutschland. Gerichtsstand 
 ---
 
 *Für Anfragen zu Lizenzrechten bitte Kontakt aufnehmen unter:*  
-[Deine Kontakt‑E‑Mail oder Website]
+**aethelgardshardsofeternity@gmail.com**
