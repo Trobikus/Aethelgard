@@ -3,7 +3,7 @@ class_name Player
 extends Actor
 
 # State Machine
-enum State { MOVE, DODGE, SPRINT, ATTACK }
+enum State { MOVE, DODGE, SPRINT, ATTACK, RANGED_ATTACK }
 var current_state: State = State.MOVE
 
 # Movement variables
@@ -23,6 +23,7 @@ var dodge_direction: Vector3
 # Attack variables
 @export var base_attack_data: AttackData
 @export var max_combo_hits: int = 3 # New variable
+@export var ranged_attack_data: AttackData
 var attack_timer: float = 0.0
 var attack_combo_counter: int = 0
 var can_combo: bool = false
@@ -76,6 +77,8 @@ func _physics_process(delta):
 				_sprint_state(delta)
 			State.ATTACK:
 				_attack_state(delta)
+			State.RANGED_ATTACK:
+				_ranged_attack_state(delta)
 		
 		_handle_interaction_check()
 		move_and_slide()
@@ -123,6 +126,11 @@ func _move_state(delta):
 			dodge_direction = (transform.basis * Vector3(input_dir_dodge.x, 0, input_dir_dodge.y)).normalized()
 		else:
 			dodge_direction = -transform.basis.z
+		return
+	# To Ranged Attack
+	if Input.is_action_just_pressed("ranged_attack"):
+		current_state = State.RANGED_ATTACK
+		# Initialize ranged attack logic here
 		return
 
 	# --- State logic ---
@@ -226,3 +234,8 @@ func _die():
 	print("Player has died. Game Over!")
 	if not Engine.is_editor_hint():
 		get_tree().reload_current_scene()
+
+func _ranged_attack_state(delta):
+	# Placeholder for ranged attack logic
+	# For now, just transition back to MOVE state
+	current_state = State.MOVE

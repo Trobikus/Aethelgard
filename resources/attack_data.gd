@@ -1,6 +1,9 @@
 class_name AttackData
 extends Resource
 
+@export var is_ranged: bool = false
+@export var projectile_scene: PackedScene
+
 @export var damage: float = 10.0
 @export var attack_range: float = 1.5 # How far the hitbox extends
 @export var duration: float = 0.3 # How long the attack animation/hitbox is active
