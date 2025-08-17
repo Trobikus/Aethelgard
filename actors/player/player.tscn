@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://actors/player/player.gd" id="1_z7xkc"]
+[ext_resource type="Resource" path="res://resources/ranged_attack_data.tres" id="2_abcde"]
+[ext_resource type="Resource" path="res://resources/base_attack_data.tres" id="3_abcde"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c2wsv"]
 height = 1.8
@@ -10,8 +12,10 @@ height = 1.8
 [sub_resource type="BoxShape3D" id="BoxShape3D_melee_hitbox"]
 size = Vector3(1, 1.8, 1)
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_z7xkc")
+base_attack_data = ExtResource("3_abcde")
+ranged_attack_data = ExtResource("2_abcde")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
@@ -33,11 +37,14 @@ enabled = true
 exclude_parent = true
 
 [node name="MeleeHitbox" type="Area3D" parent="."]
-collision_layer = 0
-collision_mask = 1
+collision_layer = 8
+collision_mask = 2
 monitorable = false
 monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeleeHitbox"]
 shape = SubResource("BoxShape3D_melee_hitbox")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, -0.5)
+
+[node name="ProjectileSpawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1)

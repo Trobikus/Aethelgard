@@ -23,9 +23,9 @@ Kampfsystem ("Kinetisches Weben"):
 
 [x] Basis-Nahkampfangriff (Kombo mit 3 Schlägen).
 
-[ ] Basis-Fernkampfangriff (Skill-Shot).
+[x] Basis-Fernkampfangriff (Skill-Shot).
 
-[ ] Schadensberechnung und Lebenspunkte-System für Spieler und Gegner.
+[x] Schadensberechnung und Lebenspunkte-System für Spieler und Gegner.
 
 [ ] Erste Gegner-KI (Verfolgen und Angreifen des Spielers).
 

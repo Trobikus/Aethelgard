@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AttackData" load_steps=2 format=3 uid="uid://d1gqxqbj8wqkv"]
+
+[ext_resource type="Script" path="res://resources/attack_data.gd" id="1_gmgay"]
+
+[resource]
+script = ExtResource("1_gmgay")
+is_ranged = true
+damage = 10.0
+attack_range = 100.0
+duration = 0.1
+combo_next_attack_window = 0.0
+animation_name = ""

@@ -1,16 +1,23 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource type="Script" path="res://items/interactable_test_cube.gd" id="1_ssycn"]
+[ext_resource type="PackedScene" path="res://ui/health_bar_3d.tscn" id="2_abcde"]
+[ext_resource type="Script" path="res://actors/enemy_ai.gd" id="3_fghij"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_vdbw7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2wimq"]
 
-[node name="InteractableTestCube" type="CharacterBody3D"]
-script = ExtResource("1_ssycn")
+[node name="InteractableTestCube" type="CharacterBody3D" groups=["enemy"]]
+collision_layer = 2
+script = ExtResource("3_fghij")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_vdbw7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_2wimq")
+
+[node name="HealthBar3D" parent="." instance=ExtResource("2_abcde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

@@ -27,17 +27,29 @@ var dodge_direction: Vector3
 var attack_timer: float = 0.0
 var attack_combo_counter: int = 0
 var can_combo: bool = false
+var _can_hit: bool = true
+
+# Ranged Attack variables
+@export var ranged_attack_cooldown: float = 1.0
+var ranged_attack_timer: float = 0.0
+var projectile_scene = preload("res://projectiles/magic_missile.tscn")
 
 # Camera control variables
 @export var mouse_sensitivity = 0.002
+@export var zoom_speed: float = 0.5
+@export var min_zoom: float = 1.0
+@export var max_zoom: float = 5.0
+@onready var camera = $CameraPivot/Camera3D
 @onready var camera_pivot = $CameraPivot
 @onready var interaction_raycast = $CameraPivot/Camera3D/InteractionRayCast
 @onready var melee_hitbox = $MeleeHitbox
+@onready var projectile_spawn = $ProjectileSpawn
 
 func _ready():
 	super() # Calls _ready in Actor
 	if not Engine.is_editor_hint():
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		health_changed.connect(_on_health_changed)
 	
 	# Exclude the player itself from the raycast
 	interaction_raycast.add_exception(self)
@@ -45,18 +57,36 @@ func _ready():
 	# Connect hitbox signal
 	melee_hitbox.body_entered.connect(_on_melee_hitbox_body_entered)
 
-func _unhandled_input(event):
+func _input(event):
 	if not Engine.is_editor_hint():
-		if event.is_action_pressed("ui_cancel"):
-			if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			else:
-				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		if event is InputEventMouseButton:
+			if event.button_index == MOUSE_BUTTON_RIGHT:
+				if event.pressed:
+					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+				else:
+					Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			
+			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+				camera.position.z = clamp(camera.position.z - zoom_speed, min_zoom, max_zoom)
+			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+				camera.position.z = clamp(camera.position.z + zoom_speed, min_zoom, max_zoom)
 
-	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and event is InputEventMouseMotion:
-		rotate_y(-event.relative.x * mouse_sensitivity)
-		camera_pivot.rotate_x(-event.relative.y * mouse_sensitivity)
-		camera_pivot.rotation.x = clamp(camera_pivot.rotation.x, -PI/2, PI/2)
+		if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			rotate_y(-event.relative.x * mouse_sensitivity)
+			camera_pivot.rotate_x(-event.relative.y * mouse_sensitivity)
+			camera_pivot.rotation.x = clamp(camera_pivot.rotation.x, -PI/2, PI/2)
+
+		if Input.is_action_just_pressed("tab_target"):
+			print("Tab target pressed")
+			var closest_enemy = _find_closest_enemy_in_front()
+			if closest_enemy:
+				_targeted_enemy_instance_id = closest_enemy.get_instance_id()
+				SignalBus.enemy_targeted.emit(_targeted_enemy_instance_id)
+				print("Targeted enemy: ", closest_enemy.name, " ID: ", _targeted_enemy_instance_id)
+			else:
+				_targeted_enemy_instance_id = -1
+				SignalBus.enemy_targeted.emit(_targeted_enemy_instance_id)
+				print("No enemy found")
 
 func _physics_process(delta):
 	if not Engine.is_editor_hint():
@@ -66,6 +96,10 @@ func _physics_process(delta):
 		# Apply gravity
 		if not is_on_floor():
 			velocity.y -= gravity * delta
+			
+		# Update ranged attack timer
+		if ranged_attack_timer > 0:
+			ranged_attack_timer -= delta
 
 		# State machine logic
 		match current_state:
@@ -97,7 +131,7 @@ func _handle_interaction_check():
 
 # --- State Functions ---
 
-func _move_state(delta):
+func _move_state(_delta):
 	# --- Get input --- 
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 
@@ -128,9 +162,8 @@ func _move_state(delta):
 			dodge_direction = -transform.basis.z
 		return
 	# To Ranged Attack
-	if Input.is_action_just_pressed("ranged_attack"):
+	if Input.is_action_just_pressed("ranged_attack") and ranged_attack_timer <= 0:
 		current_state = State.RANGED_ATTACK
-		# Initialize ranged attack logic here
 		return
 
 	# --- State logic ---
@@ -219,6 +252,9 @@ func _attack_state(delta):
 
 # --- Hitbox Signal Function ---
 func _on_melee_hitbox_body_entered(body):
+	if not _can_hit:
+		return
+
 	if body is Actor and body != self: # Added 'and body != self'
 		body.take_damage(base_attack_data.damage)
 		# To prevent multiple hits from one attack, we might disable the hitbox
@@ -227,6 +263,13 @@ func _on_melee_hitbox_body_entered(body):
 		# Use set_deferred to avoid "Function blocked during in/out signal" error
 		melee_hitbox.set_deferred("monitoring", false)
 		melee_hitbox.set_deferred("monitorable", false)
+		
+		if body.is_in_group("enemy"):
+			SignalBus.enemy_targeted.emit(body.get_instance_id())
+			
+		_can_hit = false
+		var timer = get_tree().create_timer(0.1) # Small cooldown
+		timer.timeout.connect(func(): _can_hit = true)
 
 # We override the _die() function to add player-specific death behavior
 func _die():
@@ -235,7 +278,36 @@ func _die():
 	if not Engine.is_editor_hint():
 		get_tree().reload_current_scene()
 
-func _ranged_attack_state(delta):
-	# Placeholder for ranged attack logic
-	# For now, just transition back to MOVE state
+func _ranged_attack_state(_delta):
+	var projectile = projectile_scene.instantiate()
+	projectile.attack_data = ranged_attack_data
+	get_tree().get_root().add_child(projectile)
+	projectile.global_transform = projectile_spawn.global_transform
+	ranged_attack_timer = ranged_attack_cooldown
 	current_state = State.MOVE
+
+func _on_health_changed(current_health: float, p_max_health: float):
+	SignalBus.player_health_changed.emit(current_health, p_max_health)
+
+var _targeted_enemy_instance_id: int = -1
+
+func _find_closest_enemy_in_front():
+	var enemies = get_tree().get_nodes_in_group("enemy")
+	var closest_enemy = null
+	var min_distance = INF
+	var player_forward = -global_transform.basis.z # Player's forward direction
+
+	for enemy in enemies:
+		if enemy == self: # Don't target self
+			continue
+
+		var to_enemy = (enemy.global_transform.origin - global_transform.origin).normalized()
+		var dot_product = player_forward.dot(to_enemy)
+
+		# Check if enemy is in front of the player (adjust angle as needed)
+		if dot_product > 0.5: # Angle threshold (e.g., 0.5 for ~60 degrees field of view)
+			var distance = global_transform.origin.distance_to(enemy.global_transform.origin)
+			if distance < min_distance:
+				min_distance = distance
+				closest_enemy = enemy
+	return closest_enemy

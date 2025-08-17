@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://ui/health_bar.tscn" id="1_abcde"]
+[ext_resource type="Script" path="res://ui/health_bar_3d.gd" id="2_fghij"]
+
+[node name="HealthBar3D" type="Sprite3D"]
+script = ExtResource("2_fghij")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="HealthBar" parent="SubViewport" instance=ExtResource("1_abcde")]

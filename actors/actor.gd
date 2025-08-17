@@ -2,6 +2,8 @@
 class_name Actor
 extends CharacterBody3D
 
+signal health_changed(current_health: float, max_health: float)
+
 @export var gravity: float = 10.0
 
 @export var max_health: int = 100
@@ -19,6 +21,7 @@ func _ready():
 	if not Engine.is_editor_hint():
 		current_health = max_health
 		current_stamina = max_stamina
+		health_changed.emit(current_health, max_health)
 
 func _physics_process(delta):
 	# Only run game logic when the game is playing
@@ -30,6 +33,7 @@ func _physics_process(delta):
 
 func take_damage(amount: int):
 	current_health -= amount
+	health_changed.emit(current_health, max_health)
 	print(self.name + " took " + str(amount) + " damage. Health is now " + str(current_health))
 	if current_health <= 0:
 		_die()

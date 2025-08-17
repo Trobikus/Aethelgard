@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/projectile.gd" id="1_t0j5x"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_e5v5e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q6h2e"]
+
+[node name="MagicMissile" type="Area3D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_t0j5x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_e5v5e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_q6h2e")
